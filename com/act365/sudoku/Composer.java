@@ -535,7 +535,7 @@ public class Composer extends Thread {
             if( gridContainer != null ){
                 if( puzzles.size() > 0 ){
                     //gridContainer.setGrid( (Grid) puzzles.elementAt( 0 ) );
-                	gridContainer.setGrid( (Grid) puzzles.get( 0 ));
+                	gridContainer.setGrid(puzzles.get( 0 ));
                 }
             } else {
                 if( xmlFormat && output != null ){
@@ -546,7 +546,7 @@ public class Composer extends Thread {
                     if( nSolns > 0 ){
                         System.out.println("Most complex: (" + maxPuzzleComplexity + ")");
                         //System.out.println( ((Grid) puzzles.elementAt( mostComplex ) ).toString() );
-                        System.out.println( ((Grid) puzzles.get( mostComplex ) ).toString() );
+                        System.out.println( (puzzles.get( mostComplex ) ).toString() );
                     }
                 }
             }
