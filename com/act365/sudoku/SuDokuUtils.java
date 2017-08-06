@@ -296,7 +296,8 @@ public class SuDokuUtils {
      */
 
     public static void populate( byte[][] data , String s , ValueFormat format ){   
-        String token , whitespace = " \t\n\r*|¦-+";
+        //String token , whitespace = " \t\n\r*|ï¿½-+";
+    	String token , whitespace = " \t\n\r*|?-+";
         StringTokenizer st = new StringTokenizer( s , whitespace );
         int i , j , cursor = 0 ;
         char c ;

@@ -25,7 +25,8 @@
 
 package com.act365.sudoku ;
 
-import java.util.Vector ;
+import java.util.ArrayList;
+//import java.util.Vector ;
 
 /**
  * StateStack stores state grids in a dynamically-expanding vector.
@@ -34,7 +35,11 @@ import java.util.Vector ;
  * as LinearSystemState.
  */
 
-public class StateStack extends Vector {
+//rl
+//Extending ArrayList class instead of legacy Vector.
+
+//public class StateStack extends Vector {
+public class StateStack extends ArrayList<Object> {
 
     int nMovesStored ;
     
@@ -45,13 +50,20 @@ public class StateStack extends Vector {
      */
 
     public StateStack( int maxMoves ){
+    	//rl
+    	//Set initial size via base class constructor.  Commenting out "setSize" method.
+    	
+        super(maxMoves);
+        
         nMovesStored = 0 ;
         moves = new int[maxMoves];
-        setSize( maxMoves );
+        //setSize( maxMoves );
     }
     
     /**
      * @see com.act365.sudoku.IState#pushState(int)
+     * @param nMoves 
+     * @param obj
      */
      
     public void pushState( Object obj , int nMoves ) {
@@ -60,15 +72,25 @@ public class StateStack extends Vector {
             ++ i ;   
         }
         if( i < nMovesStored ){
-            setElementAt( obj , i );   
+        	//rl
+        	//ArrayList has "set" instead of "setElementAt" method.
+        	
+            //setElementAt( obj , i );   
+        	set( i, obj);  
         } else {
-            addElement( obj );
+        	//rl
+        	//ArrayList has "add" instead of "addElement" method.
+        	
+            //addElement( obj );
+        	add( obj );
             moves[nMovesStored++] = nMoves ;
         }
     }    
 
     /**
      * @see com.act365.sudoku.IState#popState(int)
+     * @param nMoves 
+     * @return An object
      */
         
     public Object popState( int nMoves ) {
@@ -77,7 +99,11 @@ public class StateStack extends Vector {
             ++ i ;   
         }
         if( i < nMovesStored ){
-            return elementAt( i );   
+        	//rl
+        	//ArrayList has "get" instead of "elementAt" method.
+        	
+            //return elementAt( i );
+            return get( i );
         } else {
             return null ;   
         }

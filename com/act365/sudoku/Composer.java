@@ -39,8 +39,10 @@ import java.util.* ;
 
 public class Composer extends Thread {
 
+    //rl
+	//Replaced legacy Vector reference type with generic collection List interface.
+
     //Vector puzzles;
-	//Vector<Grid> puzzles;
 	List<Grid> puzzles;
     
     GridContainer gridContainer ;
@@ -182,9 +184,13 @@ public class Composer extends Thread {
         isStartable = new boolean[nSolvers];
         solverMasks = new boolean[nSolvers][cellsInRow][cellsInRow];
         solverGrids = new Grid[nSolvers];
+        
+        //rl
+        //Replaced legacy Vector type with ArrayList.
+
         //puzzles = new Vector<Grid>();
         puzzles = new ArrayList<Grid>();
-        //puzzles = new LinkedList<Grid>();
+        
         lch = new LeastCandidatesHybrid( false , true , false , true , explain );
         logicalFilter = guessFilter == -1 || 
                         guessFilter == 0 && 
@@ -397,8 +403,13 @@ public class Composer extends Thread {
                 }
             }
             lch.reset();
+            
+            //rl
+            //List interface has "add" instead of "addElement" method.
+            
             //puzzles.addElement( puzzle );
             puzzles.add( puzzle );
+            
             if( output != null ){
                 if( xmlFormat ){
                     output.println( puzzle.toXML( 1 + nSolns , featuredGrades[category] ) );
@@ -534,6 +545,10 @@ public class Composer extends Thread {
             }
             if( gridContainer != null ){
                 if( puzzles.size() > 0 ){
+                	
+                    //rl
+                	//List interface has "get" instead of "elementAt" method.  Also (Grid) cast is not needed. 
+                	
                     //gridContainer.setGrid( (Grid) puzzles.elementAt( 0 ) );
                 	gridContainer.setGrid(puzzles.get( 0 ));
                 }
@@ -545,6 +560,10 @@ public class Composer extends Thread {
                     System.out.println( nSolns + " solutions found");
                     if( nSolns > 0 ){
                         System.out.println("Most complex: (" + maxPuzzleComplexity + ")");
+                        
+                        //rl
+                        //List interface has "get" instead of "elementAt" method.  Also (Grid) cast is not needed. 
+                        
                         //System.out.println( ((Grid) puzzles.elementAt( mostComplex ) ).toString() );
                         System.out.println( (puzzles.get( mostComplex ) ).toString() );
                     }

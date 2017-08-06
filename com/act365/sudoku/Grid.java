@@ -125,7 +125,9 @@ public class Grid implements Cloneable , Serializable {
         String token = st.nextToken();
             
         while( token.indexOf('\n') == -1 ){
-            if( token.equals("*") || token.equals("|") || token.equals("¦") ){
+            //if( token.equals("*") || token.equals("|") || token.equals("ï¿½") ){
+            if( token.equals("*") || token.equals("|") || token.equals("?") ){
+            	
                 ++ boxesAcross ;
             } else if( boxesAcross == 1 ){
                 ++ boxesDown ;
