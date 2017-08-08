@@ -31,6 +31,8 @@ package com.act365.sudoku ;
 //import java.util.Vector ;
 import java.util.ArrayList;
 
+//rl
+//Enhanced the description below
 /**
  * StateStack stores state grids in a dynamically-expanding ArrayList.
  * The class should be used for memory-intensive state grids that
@@ -63,6 +65,8 @@ public class StateStack extends ArrayList<Object> {
         //setSize( maxMoves );
     }
     
+    //rl
+    //Added two @param
     /**
      * @see com.act365.sudoku.IState#pushState(int)
      * @param nMoves Thread position to which state should be written
@@ -90,6 +94,8 @@ public class StateStack extends ArrayList<Object> {
         }
     }    
 
+    //rl
+    //Added two @param
     /**
      * @see com.act365.sudoku.IState#popState(int)
      * @param nMoves Thread position from which state should be read
