@@ -25,11 +25,14 @@
 
 package com.act365.sudoku ;
 
-import java.util.ArrayList;
+//rl
+//Importing ArrayList class instead of legacy Vector.
+
 //import java.util.Vector ;
+import java.util.ArrayList;
 
 /**
- * StateStack stores state grids in a dynamically-expanding vector.
+ * StateStack stores state grids in a dynamically-expanding ArrayList.
  * The class should be used for memory-intensive state grids that
  * are rarely references (so that performance isn't critical), such
  * as LinearSystemState.
@@ -51,7 +54,7 @@ public class StateStack extends ArrayList<Object> {
 
     public StateStack( int maxMoves ){
     	//rl
-    	//Set initial size via base class constructor.  Commenting out "setSize" method.
+    	//Set initial size via base class constructor because ArrayList does not have "setSize" method.
     	
         super(maxMoves);
         
@@ -62,8 +65,8 @@ public class StateStack extends ArrayList<Object> {
     
     /**
      * @see com.act365.sudoku.IState#pushState(int)
-     * @param nMoves 
-     * @param obj
+     * @param nMoves Thread position to which state should be written
+     * @param obj Consists of byte[][][] object
      */
      
     public void pushState( Object obj , int nMoves ) {
@@ -89,8 +92,8 @@ public class StateStack extends ArrayList<Object> {
 
     /**
      * @see com.act365.sudoku.IState#popState(int)
-     * @param nMoves 
-     * @return An object
+     * @param nMoves Thread position from which state should be read
+     * @return An object consists of byte[][][] 
      */
         
     public Object popState( int nMoves ) {

@@ -40,7 +40,7 @@ import java.util.* ;
 public class Composer extends Thread {
 
     //rl
-	//Replaced legacy Vector reference type with generic collection List interface.
+	//Replaced raw legacy Vector with generic collection List.
 
     //Vector puzzles;
 	List<Grid> puzzles;
@@ -186,7 +186,7 @@ public class Composer extends Thread {
         solverGrids = new Grid[nSolvers];
         
         //rl
-        //Replaced legacy Vector type with ArrayList.
+        //Replaced legacy Vector with generic collection ArrayList.
 
         //puzzles = new Vector<Grid>();
         puzzles = new ArrayList<Grid>();
